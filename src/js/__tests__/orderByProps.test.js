@@ -51,23 +51,13 @@ test.each([
       { key: 'defence', value: 40 },
     ],
   ],
-  [
-    ['level', 'health', 'defence', 'attack', 'name', 'defence'],
-    [
-      { key: 'level', value: 2 },
-      { key: 'health', value: 10 },
-      { key: 'attack', value: 80 },
-      { key: 'name', value: 'мечник' },
-      { key: 'defence', value: 40 },
-    ],
-  ],
 ])(
   ('should sort and return an array with properties as elements'),
   (sort, expected) => {
     const obj = {
       name: 'мечник', health: 10, level: 2, attack: 80, defence: 40,
     };
-    const result = orderByProps(obj, ['name', 'level']);
+    const result = orderByProps(obj, sort);
     expect(result).toEqual(expected);
   },
 );
